@@ -1,0 +1,64 @@
+---
+title: "Graph Summarization"
+author: "Ichcha Manipur"
+date: "04/19/2020"
+output: html_document
+---
+
+### load functions, install packages igraph and fcd
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(stringsAsFactors = FALSE)
+# install.packages(c("igraph", "fcd"))
+source("graphSummarize.R")
+```
+
+### Load data and specify the number of node clusters for summarization
+```{r, message=FALSE}
+num_clusters <- 250
+path_whole_graphs <- 'Data/KidneyData//WholeGraphs/'
+path_summarized_graphs <- 'Data/KidneyData/SummarizedGraphs/'
+output_folder_summ <- file.path(path_summarized_graphs, (paste0("NodesSumm_",
+                                                                num_clusters)))
+ifelse(!dir.exists(output_folder_summ), dir.create(output_folder_summ), FALSE)
+file_list_keep <- list.files(path_whole_graphs)
+# kidey_annotation <- read.table("Data/KidneyData/kidneyGraphAnnotation.txt", 
+#                                sep = ' ', header = TRUE)
+# file_list_keep <- file_list_keep[which(gsub('.graphml', '', file_list_keep)
+#                                        %in%kidey_annotation$Samples)]
+```
+
+### Graph summarization example
+```{r, message=FALSE}
+  count <- 1
+  for (graph_file_name in file_list_keep){
+    graph_whole <- read.graph(file.path(path_whole_graphs, graph_file_name), 
+                              format = "graphml")
+    # Extract the largest connected component
+    graph_wholeCC <- getlargestCC(graph_whole)
+    
+    # Get the vertex cluster membership and indicator matrix--------------------
+    # Run once as the clusters are extracted from the unweighted graphs
+    # (common across all)
+    if (count==1){
+      # memb_cluster can also be obtained by other clustering methods (Insert 
+      # your membership vector here)
+      memb_cluster <- getspectralClusterMembership(graph_wholeCC, 
+                                                   k=num_clusters)
+      indicator_matrix <- getIndicatorMatrix(memb_cluster)
+    }
+    # --------------------------------------------------------------------------
+    
+    # Summarize graph
+    graph_summ <- getSummarizedGraph(graph_wholeCC, indicator_matrix)
+    
+    write.graph(graph_summ, file.path(output_folder_summ, graph_file_name), 
+                format = "graphml")
+    count <- count+1
+  }
+  write.table(t(memb_cluster), paste0(
+    "Data/KidneyData/", num_clusters, "_memb_cluster.txt"), quote = FALSE)
+  write.table(indicator_matrix, paste0(
+    "Data/KidneyData/", num_clusters, "_cluster_indicator_matrix.txt"),
+    quote = FALSE)
+```
