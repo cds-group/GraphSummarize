@@ -1,3 +1,6 @@
+## cds-group - ICAR-CNR, Naples, 
+## Ichcha Manipur, Ilaria Granata, Lucia Maddalena and Mario R Guarracino, Clustering Analysis of Tumor Metabolic Networks, Accepted (2020)
+
 library(igraph)
 #' Extract the largest connected component from the given graph
 #'
