@@ -13,7 +13,7 @@ The functions (in R) required for clustering, obtaining indicator matrices and g
 # Requires the following packages
 install.packages(c("igraph", "fcd"))
 ```
-** The [RunGraphSummarize.Rmd](RunGraphSummarize.Rmd) file contains the code used to extract the clusters and construct the summarized graphs in [1]. Note: You can input your cluster membership vectors ([example format](Data/KidneyData/250_memb_cluster.txt)) from your node clustering algorithms in the memb_clust avriable on line 46. 
+** The [RunGraphSummarize.Rmd](RunGraphSummarize.Rmd) file contains the code used to extract the clusters and construct the summarized graphs in [1]. Note: You can input your cluster membership vectors ([example format](Data/KidneyData/250_memb_cluster.txt)) from your node clustering algorithms in the memb_clust variable on line 46. 
 
 ### References
 [1] Manipur, I., Granata, I., Maddalena, L. and Guarracino, M.R., Clustering analysis of tumor metabolic networks, Accepted Manuscript (2020)
