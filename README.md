@@ -1,6 +1,6 @@
 # GraphSummarize
 
-Code to cluster and summarize vertices of undirected weighted graphs.
+Data and code to cluster and summarize vertices of undirected weighted graphs.
 
 ### Data description
 The [Data/KidneyData](Data/KidneyData) folder contains metabolic networks of 299 Kidney cancer samples (TCGA-KIRC and TCGA-KIRP), used for the network clustering study in [1]. These networks were constructed following the methods detailed in [2] and [3]. The dataset contains both whole graphs (4022 nodes) and summarized graphs (250 nodes) in graphml format. The folder also contains [annotation](Data/KidneyData/kidneyGraphAnnotation.txt) for the TCGA samples. The precomputed vertex [cluster members](Data/KidneyData/250_memb_cluster.txt) and [indicator matrix](Data/KidneyData/250_cluster_indicator_matrix.txt) obtained with spectral clustering are also included.
