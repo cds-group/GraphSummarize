@@ -1,6 +1,6 @@
 ---
 title: "Graph Summarization"
-author: "cds-group/Ichcha Manipur"
+author: "cds-group/ICAR"
 date: "04/19/2020"
 output: html_document
 ---
