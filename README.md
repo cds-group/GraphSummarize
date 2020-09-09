@@ -16,7 +16,7 @@ install.packages(c("igraph", "fcd"))
 ** The [RunGraphSummarize.Rmd](RunGraphSummarize.Rmd) file contains the code used to extract the clusters and construct the summarized graphs in [1]. Note: You can input your cluster membership vectors ([example format](Data/KidneyData/250_memb_cluster.txt)) from your node clustering algorithms in the memb_clust variable on line 46. 
 
 ### References
-[1] Manipur, I., Granata, I., Maddalena, L. and Guarracino, M.R., Clustering analysis of tumor metabolic networks, Accepted Manuscript (2020)
+[1] Manipur, I., Granata, I., Maddalena, L. and Guarracino, M.R., 2020. Clustering analysis of tumor metabolic networks. BMC bioinformatics, 21(10), pp.1-14. https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-03564-9
 
 [2] Granata, I., Guarracino, M.R., Kalyagin, V.A., Maddalena, L., Manipur, I. and Pardalos, P.M., 2018, December. Supervised classification of metabolic networks. In 2018 IEEE International Conference on Bioinformatics and Biomedicine (BIBM) (pp. 2688-2693). IEEE.
 https://ieeexplore.ieee.org/abstract/document/8621500
